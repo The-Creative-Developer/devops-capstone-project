@@ -1,0 +1,38 @@
+# CREATE an account (POST /accounts)
+$ curl -i -s -X POST http://localhost:8080/accounts -H X-Forwarded-Proto: https -H Content-Type: application/json -d {"name":"Alice Johnson","email":"alice@example.com","address":"12 Elm Street, Springfield","phone_number":"555-0101","date_joined":"2022-03-15"}
+HTTP/1.1 201 CREATED
+Server: gunicorn
+Date: Thu, 29 Oct 2026 16:22:18 GMT
+Connection: close
+Content-Type: application/json
+Content-Length: 152
+Location: https://localhost:8080/accounts/1
+Access-Control-Allow-Origin: *
+X-Frame-Options: SAMEORIGIN
+X-XSS-Protection: 1; mode=block
+X-Content-Type-Options: nosniff
+Content-Security-Policy: default-src 'self'; object-src 'none'
+Strict-Transport-Security: max-age=31556926; includeSubDomains
+Referrer-Policy: strict-origin-when-cross-origin
+
+{"address":"12 Elm Street, Springfield","date_joined":"2022-03-15","email":"alice@example.com","id":1,"name":"Alice Johnson","phone_number":"555-0101"}
+
+# CREATE a second account (POST /accounts)
+$ curl -i -s -X POST http://localhost:8080/accounts -H X-Forwarded-Proto: https -H Content-Type: application/json -d {"name":"Bob Smith","email":"bob@example.com","address":"34 Oak Avenue, Shelbyville","phone_number":"555-0102","date_joined":"2023-07-01"}
+HTTP/1.1 201 CREATED
+Server: gunicorn
+Date: Thu, 29 Oct 2026 16:22:18 GMT
+Connection: close
+Content-Type: application/json
+Content-Length: 146
+Location: https://localhost:8080/accounts/2
+Access-Control-Allow-Origin: *
+X-Frame-Options: SAMEORIGIN
+X-XSS-Protection: 1; mode=block
+X-Content-Type-Options: nosniff
+Content-Security-Policy: default-src 'self'; object-src 'none'
+Strict-Transport-Security: max-age=31556926; includeSubDomains
+Referrer-Policy: strict-origin-when-cross-origin
+
+{"address":"34 Oak Avenue, Shelbyville","date_joined":"2023-07-01","email":"bob@example.com","id":2,"name":"Bob Smith","phone_number":"555-0102"}
+

@@ -1,0 +1,52 @@
+# Ephemeral PostgreSQL for the Accounts service (use the OpenShift
+# postgresql-ephemeral template instead if your cluster provides one).
+apiVersion: v1
+kind: Secret
+metadata:
+  name: postgres-creds
+type: Opaque
+stringData:
+  database_uri: postgresql://postgres:pgs3cr3t@postgresql:5432/accounts
+  password: pgs3cr3t
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: postgresql
+  labels:
+    app: postgresql
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: postgresql
+  template:
+    metadata:
+      labels:
+        app: postgresql
+    spec:
+      containers:
+      - name: postgresql
+        image: postgres:alpine
+        ports:
+        - containerPort: 5432
+        env:
+          - name: POSTGRES_DB
+            value: accounts
+          - name: POSTGRES_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: postgres-creds
+                key: password
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: postgresql
+spec:
+  selector:
+    app: postgresql
+  ports:
+    - protocol: TCP
+      port: 5432
+      targetPort: 5432

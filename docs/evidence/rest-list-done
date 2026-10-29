@@ -1,0 +1,18 @@
+# LIST all accounts (GET /accounts)
+$ curl -i -s -X GET http://localhost:8080/accounts -H X-Forwarded-Proto: https
+HTTP/1.1 200 OK
+Server: gunicorn
+Date: Thu, 29 Oct 2026 16:22:18 GMT
+Connection: close
+Content-Type: application/json
+Content-Length: 300
+Access-Control-Allow-Origin: *
+X-Frame-Options: SAMEORIGIN
+X-XSS-Protection: 1; mode=block
+X-Content-Type-Options: nosniff
+Content-Security-Policy: default-src 'self'; object-src 'none'
+Strict-Transport-Security: max-age=31556926; includeSubDomains
+Referrer-Policy: strict-origin-when-cross-origin
+
+[{"address":"12 Elm Street, Springfield","date_joined":"2022-03-15","email":"alice@example.com","id":1,"name":"Alice Johnson","phone_number":"555-0101"},{"address":"34 Oak Avenue, Shelbyville","date_joined":"2023-07-01","email":"bob@example.com","id":2,"name":"Bob Smith","phone_number":"555-0102"}]
+

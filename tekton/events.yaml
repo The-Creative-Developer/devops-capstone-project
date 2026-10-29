@@ -1,0 +1,52 @@
+# Tekton Triggers: start cd-pipeline when a commit is pushed to the repo
+apiVersion: triggers.tekton.dev/v1beta1
+kind: TriggerTemplate
+metadata:
+  name: cd-template
+spec:
+  params:
+    - name: repo-url
+    - name: branch
+      default: main
+  resourcetemplates:
+    - apiVersion: tekton.dev/v1beta1
+      kind: PipelineRun
+      metadata:
+        generateName: cd-pipeline-run-
+      spec:
+        pipelineRef:
+          name: cd-pipeline
+        params:
+          - name: repo-url
+            value: $(tt.params.repo-url)
+          - name: branch
+            value: $(tt.params.branch)
+          - name: build-image
+            value: image-registry.openshift-image-registry.svc:5000/$(context.pipelineRun.namespace)/accounts:latest
+        workspaces:
+          - name: pipeline-workspace
+            persistentVolumeClaim:
+              claimName: oc-lab-pvc
+---
+apiVersion: triggers.tekton.dev/v1beta1
+kind: TriggerBinding
+metadata:
+  name: cd-binding
+spec:
+  params:
+    - name: repo-url
+      value: $(body.repository.url)
+    - name: branch
+      value: main
+---
+apiVersion: triggers.tekton.dev/v1beta1
+kind: EventListener
+metadata:
+  name: cd-listener
+spec:
+  serviceAccountName: pipeline
+  triggers:
+    - bindings:
+        - ref: cd-binding
+      template:
+        ref: cd-template
