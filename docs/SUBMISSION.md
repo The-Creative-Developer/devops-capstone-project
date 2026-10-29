@@ -25,10 +25,10 @@ CI run (passing): https://github.com/The-Creative-Developer/devops-capstone-proj
 | DELETE cURL | `rest-delete-done` | ready |
 | CI workflow steps | `ci-workflow-done` | ready (real GitHub Actions log, all steps green) |
 | nosetests after CORS/Talisman | `security-headers-done` | ready (33 tests, 98%) |
-| App JSON on port 8080 | `kube-app-output` | ready (local run) |
-| Docker images | `kube-images` | **needs Docker Desktop running** |
-| Kubernetes deployment details | `kube-deploy-accounts` | **needs a cluster** |
-| Tekton pipeline logs | `pipelinerun.txt` | **needs a cluster** |
+| App JSON on port 8080 | `kube-app-output` | ready (served from the Kubernetes cluster) |
+| Docker images | `kube-images` | ready |
+| Kubernetes deployment details | `kube-deploy-accounts` | ready (kind cluster: deployment, pod, replica sets, service) |
+| Tekton pipeline logs | `pipelinerun.txt` | ready (all 6 tasks Succeeded) |
 
 ## ZenHub board screenshots (`docs/screenshots/`)
 

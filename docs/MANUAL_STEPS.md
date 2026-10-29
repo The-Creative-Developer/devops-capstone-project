@@ -76,3 +76,13 @@ Tip: move cards in this order so each screenshot matches the sprint it belongs t
 * The tests default to Postgres (`DATABASE_URI`), as in the course. The evidence here was generated with SQLite because Docker was not running.
 * `nose` 1.3.7 only works on Python ≤ 3.9 – use the 3.9 venv.
 * The Tekton pipeline was written from the course description and could not be run here (no cluster). Expect to tweak ClusterTask names or the registry URL for your cluster.
+
+## F. Update: Docker / Kubernetes / Tekton evidence now captured
+
+`kube-images`, `kube-deploy-accounts`, `kube-app-output` and `pipelinerun.txt` were produced on a local
+[kind](https://kind.sigs.k8s.io) cluster (`bin/kind-up.sh`) with Tekton Pipelines v1.6.0. Tekton no longer ships
+ClusterTasks, so `make clustertasks` installs `git-clone`, `buildah` and `openshift-client` from the Tekton catalog.
+Re-create with `bin/kind-up.sh && make clustertasks pipeline`; tear down with `kind delete cluster --name capstone`.
+
+Two real bugs were found and fixed while doing this: `psycopg2-binary` 2.9.3 cannot do SCRAM auth on arm64
+(bumped to 2.9.9), and Flask-Talisman redirected the plain-HTTP `/health` readiness probe (now exempt).

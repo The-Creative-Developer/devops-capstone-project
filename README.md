@@ -62,6 +62,8 @@ kubectl get all -l app=accounts
 
 ## CD pipeline (Tekton)
 
+Local cluster: `bin/kind-up.sh` (kind + local registry), then `make tekton clustertasks pipeline`.
+
 `make tekton` installs Tekton on a local cluster; `make pipeline` applies the tasks, pipeline and trigger.
 Pipeline: `init → clone → (lint ∥ tests) → build → deploy`.
 
