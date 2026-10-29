@@ -1,0 +1,36 @@
+$ curl -i -H "X-Forwarded-Proto: https" -H "Origin: https://example.com" http://localhost:8080/
+HTTP/1.1 200 OK
+Server: gunicorn
+Date: Thu, 29 Oct 2026 17:56:34 GMT
+Connection: close
+Content-Type: application/json
+Content-Length: 52
+Access-Control-Allow-Origin: https://example.com
+Vary: Origin
+X-Frame-Options: SAMEORIGIN
+X-XSS-Protection: 1; mode=block
+X-Content-Type-Options: nosniff
+Content-Security-Policy: default-src 'self'; object-src 'none'
+Strict-Transport-Security: max-age=31556926; includeSubDomains
+Referrer-Policy: strict-origin-when-cross-origin
+
+{"name":"Account REST API Service","version":"1.0"}
+
+
+$ curl -i -H "X-Forwarded-Proto: https" http://localhost:8080/health
+HTTP/1.1 200 OK
+Server: gunicorn
+Date: Thu, 29 Oct 2026 17:56:34 GMT
+Connection: close
+Content-Type: application/json
+Content-Length: 16
+Access-Control-Allow-Origin: *
+X-Frame-Options: SAMEORIGIN
+X-XSS-Protection: 1; mode=block
+X-Content-Type-Options: nosniff
+Content-Security-Policy: default-src 'self'; object-src 'none'
+Strict-Transport-Security: max-age=31556926; includeSubDomains
+Referrer-Policy: strict-origin-when-cross-origin
+
+{"status":"OK"}
+
