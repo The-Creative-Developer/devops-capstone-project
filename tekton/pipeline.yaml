@@ -24,7 +24,6 @@ spec:
           workspace: pipeline-workspace
       taskRef:
         name: git-clone
-        kind: ClusterTask
       params:
         - name: url
           value: $(params.repo-url)
@@ -65,7 +64,6 @@ spec:
           workspace: pipeline-workspace
       taskRef:
         name: buildah
-        kind: ClusterTask
       params:
         - name: IMAGE
           value: "$(params.build-image)"
@@ -83,7 +81,6 @@ spec:
           workspace: pipeline-workspace
       taskRef:
         name: openshift-client
-        kind: ClusterTask
       params:
         - name: SCRIPT
           value: |
@@ -92,6 +89,7 @@ spec:
             cat deploy/deployment.yaml
             echo "Deploying to cluster..."
             oc apply -f deploy/
+            oc rollout status deployment/accounts --timeout=180s
             oc get pods -l app=accounts
       runAfter:
         - build

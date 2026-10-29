@@ -59,6 +59,12 @@ tekton: ## Install Tekton pipelines, triggers and dashboard
 	kubectl apply --filename https://storage.googleapis.com/tekton-releases/triggers/latest/interceptors.yaml
 	kubectl apply --filename https://storage.googleapis.com/tekton-releases/dashboard/latest/release.yaml
 
+.PHONY: clustertasks
+clustertasks: ## Install git-clone, buildah and openshift-client Tasks from the Tekton catalog
+	kubectl apply -f https://raw.githubusercontent.com/tektoncd/catalog/main/task/git-clone/0.9/git-clone.yaml
+	kubectl apply -f https://raw.githubusercontent.com/tektoncd/catalog/main/task/buildah/0.9/buildah.yaml
+	kubectl apply -f https://raw.githubusercontent.com/tektoncd/catalog/main/task/openshift-client/0.2/openshift-client.yaml
+
 .PHONY: deploy
 deploy: ## Deploy Postgres and the Accounts service
 	kubectl apply -f deploy/postgres.yaml
