@@ -36,19 +36,19 @@ GitHub issues 1–11 exist: https://github.com/The-Creative-Developer/devops-cap
 
 | Checklist item | File | Status |
 |---|---|---|
-| All stories in New Issues | `Planning-userstories-done` | pending |
-| Stories in Ice Box | `planning-productbacklog-done` | pending |
-| Technical Debt / Enhancement labels | `planning-labels-done` | pending |
-| Sprint 1 in Sprint Backlog | `planning-kanban-done` | pending |
-| Dev environment story Done | `rest-techdebt-done` | pending |
-| Read account Done | `read-accounts` | pending |
-| List accounts Done | `list-accounts` | pending |
-| Update account Done | `update-accounts` | pending |
-| Delete account Done | `delete-accounts` | pending |
-| Sprint 2 plan (2 stories) | `sprint2-plan` | pending |
-| CI story Done | `ci-kanban-done` | pending |
-| Security story Done | `security-kanban-done` | pending |
-| Sprint 3 plan (3 stories) | `sprint3-plan` | pending |
-| Docker story Done | `kube-docker-done` | pending |
-| Kubernetes story Done | `kube-kubernetes-done` | pending |
-| CD pipeline story Done | `cd-pipeline-done` | pending |
+| All stories in New Issues | `Planning-userstories-done.jpeg` | captured |
+| Stories in Ice Box | `planning-productbacklog-done.jpeg` | captured |
+| Technical Debt / Enhancement labels | `planning-labels-done.jpeg` | captured |
+| Sprint 1 in Sprint Backlog | `planning-kanban-done.jpeg` | captured |
+| Dev environment story Done | `rest-techdebt-done.jpeg` | captured |
+| Read account Done | `read-accounts.jpeg` | captured |
+| List accounts Done | `list-accounts.jpeg` | captured |
+| Update account Done | `update-accounts.jpeg` | captured |
+| Delete account Done | `delete-accounts.jpeg` | captured |
+| Sprint 2 plan (2 stories) | `sprint2-plan.jpeg` | captured |
+| CI story Done | `ci-kanban-done.jpeg` | captured |
+| Security story Done | `security-kanban-done.jpeg` | captured |
+| Sprint 3 plan (3 stories) | `sprint3-plan.jpeg` | captured |
+| Docker story Done | `kube-docker-done.jpeg` | captured |
+| Kubernetes story Done | `kube-kubernetes-done.jpeg` | captured |
+| CD pipeline story Done | `cd-pipeline-done.jpeg` | captured |
