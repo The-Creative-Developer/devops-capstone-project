@@ -24,7 +24,7 @@ Use the `blob/main/...` URL, e.g. `https://github.com/<you>/devops-capstone-proj
 | 13–17 | `rest-create-done`, `rest-list-done`, `rest-read-done`, `rest-update-done`, `rest-delete-done` | ✅ | Generated from the real running service by `bin/capture-evidence.sh`. Re-run in your own environment (Postgres) if you want them to match the lab exactly. |
 | 23 | `security-headers-done` (nosetests output) | ✅ | 33 tests pass, 98% coverage. Re-run `nosetests > security-headers-done` against Postgres if you prefer. |
 | 26 | `kube-app-output` | ✅ (local) | JSON from `/`. If the grader expects it from the cluster launch, re-run `curl` against your deployed app. |
-| 19 | `ci-workflow-done` | 🖐 | After pushing, open Actions → CI Build → copy/paste the terminal-style log (all steps green), or `gh run view --log > docs/evidence/ci-workflow-done`. |
+| 19 | `ci-workflow-done` | ✅ | Real GitHub Actions log saved from the passing run. |
 | 31 | `kube-images` | 🖐 | Needs a running Docker daemon (Docker Desktop was **not running** here): `docker images accounts` – must show name, tag, image id, created, size. |
 | 32 | `kube-deploy-accounts` | 🖐 | On your cluster: `kubectl get all -l app=accounts > kube-deploy-accounts` (deployments, pods, replica sets, service). |
 | 33 | `pipelinerun.txt` | 🖐 | `tkn pipelinerun logs --last > pipelinerun.txt` after a successful run. |
