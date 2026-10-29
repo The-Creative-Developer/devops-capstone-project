@@ -79,7 +79,7 @@ Then I receive 200 OK and a JSON list of all accounts
 
 ## Sprint 2 – Add CI and security
 
-### 7. Automate the build with continuous integration  `technical debt`
+### 7. Need the ability to automate continuous integration checks  `technical debt`
 **As a** developer
 **I need** a GitHub Actions workflow that lints and tests on every push and pull request
 **So that** broken code is caught immediately
@@ -90,7 +90,7 @@ When the CI Build workflow runs
 Then flake8 and nosetests execute against a PostgreSQL service container and pass
 ```
 
-### 8. Add security headers and CORS policies  `enhancement`
+### 8. Need to add security headers and CORS policies  `enhancement`
 **As a** security engineer
 **I need** Flask-Talisman security headers and Flask-Cors CORS policy
 **So that** the service resists common web attacks
@@ -104,7 +104,7 @@ Then the response includes X-Frame-Options, X-Content-Type-Options, Content-Secu
 
 ## Sprint 3 – Deploy to Kubernetes
 
-### 9. Containerize the service with Docker  `technical debt`
+### 9. Containerize your microservice using Docker  `technical debt`
 **As a** DevOps engineer
 **I need** a Dockerfile that builds an `accounts` image
 **So that** the service runs the same everywhere
@@ -115,7 +115,7 @@ When I run docker build -t accounts:1 .
 Then an image named accounts is created that serves on port 8080
 ```
 
-### 10. Deploy the service to Kubernetes  `technical debt`
+### 10. Deploy your Docker image to Kubernetes  `technical debt`
 **As a** DevOps engineer
 **I need** Kubernetes manifests for the service and database
 **So that** the service runs with scaling and self-healing
@@ -126,7 +126,7 @@ When I apply deploy/*.yaml
 Then the accounts deployment, pod, replica set and service are running
 ```
 
-### 11. Automate deployment with a CD pipeline  `technical debt`
+### 11. Create a CD pipeline to automate deployment to Kubernetes  `technical debt`
 **As a** DevOps engineer
 **I need** a Tekton pipeline (clone, lint, test, build, deploy) with a trigger
 **So that** every commit is deployed automatically

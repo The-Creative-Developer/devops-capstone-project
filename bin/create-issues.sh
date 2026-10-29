@@ -33,25 +33,25 @@ story "Delete an account from the service" "enhancement" "service consumer" \
 story "List all accounts in the service" "enhancement" "service consumer" \
   "to list all accounts" "I can see every customer" \
   "several accounts exist" "I GET /accounts" "I receive 200 OK and a JSON list of all accounts"
-story "Automate the build with continuous integration" "technical debt" "developer" \
+story "Need the ability to automate continuous integration checks" "technical debt" "developer" \
   "a GitHub Actions workflow that lints and tests on every push and pull request" \
   "broken code is caught immediately" \
   "a push or pull request to main" "the CI Build workflow runs" \
   "flake8 and nosetests execute against a PostgreSQL service container and pass"
-story "Add security headers and CORS policies" "enhancement" "security engineer" \
+story "Need to add security headers and CORS policies" "enhancement" "security engineer" \
   "Flask-Talisman security headers and Flask-Cors CORS policy" \
   "the service resists common web attacks" \
   "the service is running" "I request any endpoint over HTTPS" \
   "the response includes the security and CORS headers"
-story "Containerize the service with Docker" "technical debt" "DevOps engineer" \
+story "Containerize your microservice using Docker" "technical debt" "DevOps engineer" \
   "a Dockerfile that builds an accounts image" "the service runs the same everywhere" \
   "the repository" "I run docker build -t accounts:1 ." \
   "an image named accounts is created that serves on port 8080"
-story "Deploy the service to Kubernetes" "technical debt" "DevOps engineer" \
+story "Deploy your Docker image to Kubernetes" "technical debt" "DevOps engineer" \
   "Kubernetes manifests for the service and database" "the service runs with scaling and self-healing" \
   "a Kubernetes/OpenShift cluster" "I apply deploy/*.yaml" \
   "the accounts deployment, pod, replica set and service are running"
-story "Automate deployment with a CD pipeline" "technical debt" "DevOps engineer" \
+story "Create a CD pipeline to automate deployment to Kubernetes" "technical debt" "DevOps engineer" \
   "a Tekton pipeline (clone, lint, test, build, deploy) with a trigger" \
   "every commit is deployed automatically" \
   "the Tekton pipeline is installed" "I start a PipelineRun or push a commit" \
